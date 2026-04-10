@@ -43,8 +43,7 @@ I enjoy jumping into issues on projects I use daily. Focused on UI bugs, UX impr
 ## 📊 GitHub Stats
 
 <div align="center">
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=santichausis&show_icons=true&theme=github_dark&hide_border=true&count_private=true" />
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=santichausis&layout=compact&theme=github_dark&hide_border=true" />
+  <img src="https://streak-stats.demolab.com?user=santichausis&theme=github-dark&hide_border=true&date_format=j%20M%5B%20Y%5D" alt="GitHub Streak" />
 </div>
 
 ---
