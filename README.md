@@ -1,6 +1,6 @@
 <!-- Animated banner -->
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=Hey%2C+I'm+Santi+%F0%9F%91%8B;Full-stack+developer;Micro-SaaS+builder;Open+source+contributor" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Raleway&weight=600&size=22&pause=1000&color=F7CA60FF&center=true&vCenter=true&width=500&lines=Hey%2C+I'm+Santi+%F0%9F%91%8B;Product+developer;Micro-SaaS+builder;Open+source+contributor" alt="Typing SVG" />
 </div>
 
 <br/>
@@ -35,7 +35,7 @@ I enjoy jumping into issues on projects I use daily. Focused on UI bugs, UX impr
 ## 🛠️ Stack
 
 <div align="left">
-  <img src="https://skillicons.dev/icons?i=nextjs,ts,js,react,supabase,vercel,tailwind,nodejs,git,vscode" />
+  <img src="https://skillicons.dev/icons?i=nextjs,ts,js,react,supabase,vercel,tailwind,nodejs" />
 </div>
 
 ---
