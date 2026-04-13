@@ -1,53 +1,62 @@
-<!-- Animated banner -->
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Raleway&weight=600&size=22&pause=1000&color=F7CA60FF&center=true&vCenter=true&width=500&lines=Hey%2C+I'm+Santi+%F0%9F%91%8B;Product+developer;Micro-SaaS+builder;Open+source+contributor" alt="Typing SVG" />
-</div>
+# Santi 👋
 
-<br/>
-
-## 🧑‍💻 About me
-
-I build digital products from Buenos Aires 🇦🇷. I enjoy crafting things that are useful, fast, and well-made — from tools for content creators to open source templates.
-
-When I'm not coding, I'm on the indoor rower, reading, or exploring new SaaS ideas.
+Builder & Open Source Contributor | Buenos Aires 🇦🇷
 
 ---
 
-## 🚀 My projects
+## About me
 
-| Project | Description | Stack |
+I'm a product developer focused on building tools that solve real problems. I work across digital products—from SaaS to content creator tools—always with emphasis on performance, clean architecture, and user experience.
+
+When I'm not shipping code, I'm rowing indoors, reading thrillers, or exploring the indie SaaS space.
+
+---
+
+## What I'm doing
+
+- **Building:** Micro-SaaS products on the Next.js stack
+- **Contributing:** Open source projects I use daily (UI, UX, docs)
+- **Learning:** System design, DevOps patterns, and new frameworks
+- **Currently exploring:** Report generation, affiliate tools, and creator platforms
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:** Next.js · React · TypeScript · Tailwind CSS  
+**Backend:** Node.js · Supabase · PostgreSQL  
+**DevOps:** Vercel · Docker · GitHub Actions  
+**Tools:** VS Code · Git · Cursor  
+
+---
+
+## My work
+
+### Recent Projects
+
+| Name | Description | Status |
 |---|---|---|
-| 🔗 **[LinkGuard](https://linkguard-blue.vercel.app)** | Affiliate link manager for content creators | Next.js · Supabase · Vercel |
-| 📚 **[Tu Siguiente Página](https://tusiguientepagina.com)** | Book recommendation quiz with affiliate links | Next.js · Supabase |
-| 🐾 **[Pokemon Pomodoro](https://github.com/santichausis/pokemon-pomodoro)** | Pokémon-themed Pomodoro timer | JavaScript |
-| 🌱 **[NGO Template](https://github.com/santichausis/NGO-Template)** | Free open source landing page template for nonprofits | Next.js · TypeScript |
+| **LinkGuard** | Affiliate link manager for content creators | Active |
+| **Tu Siguiente Página** | Book recommendation quiz with affiliate integration | Shipped |
+| **Pokémon Pomodoro** | Pokémon-themed focus timer | Shipped |
+
+### Open Source Contributions
+
+I focus on UI/UX issues and documentation in projects I actively use:
+
+- **[Tadreeb-LMS](https://github.com/Tadreeb-LMS/tadreeblms)** — Open-source Learning Management System  
+- **[PokeAPI](https://github.com/PokeAPI/pokeapi)** — The Pokémon REST API  
+
+→ Also exploring issues in **Shadcn/ui**, **Radix UI**, and **Next.js ecosystem**
 
 ---
 
-## 🤝 Open Source — where I contribute
+## Let's connect
 
-I enjoy jumping into issues on projects I use daily. Focused on UI bugs, UX improvements, and docs.
-
-> 🔍 Currently exploring issues in: **Shadcn/ui · Radix UI · Next.js ecosystem · Cal.com**
-
----
-
-## 🛠️ Stack
-
-<div align="left">
-  <img src="https://skillicons.dev/icons?i=nextjs,ts,js,react,supabase,vercel,tailwind,nodejs" />
-</div>
+- 💼 Open to collaborations on SaaS and open source
+- 📧 Best way to reach me: GitHub discussions
+- 🐦 Also on X / Twitter
 
 ---
 
-## 📊 GitHub Stats
-
-<div align="center">
-  <img src="https://streak-stats.demolab.com?user=santichausis&theme=github-dark&hide_border=true&date_format=j%20M%5B%20Y%5D" alt="GitHub Streak" />
-</div>
-
----
-
-<div align="center">
-  <sub>Buenos Aires · Builder · Contributor</sub>
-</div>
+**Buenos Aires · Builder · Contributor**
