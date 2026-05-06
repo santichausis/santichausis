@@ -42,12 +42,21 @@ When I'm not shipping code, I'm rowing indoors, reading thrillers, or exploring 
 
 ### Open Source Contributions
 
-I focus on UI/UX issues and documentation in projects I actively use:
+#### Approved PRs
 
-- **[Tadreeb-LMS](https://github.com/Tadreeb-LMS/tadreeblms)** — Open-source Learning Management System  
-- **[PokeAPI](https://github.com/PokeAPI/pokeapi)** — The Pokémon REST API  
+| Repository | Contribution | Impact |
+|---|---|---|
+| **[freeCodeCamp](https://github.com/freeCodeCamp/contribute)** | Updated Twitter icon to X logo in navigation | UI/UX modernization |
+| **[Tadreeb-LMS](https://github.com/Tadreeb-LMS/tadreeblms)** | Multiple merged PRs: reposition dashboard widgets, add language file downloads, session management, certificate dashboard fixes, email notification error resolution | 5+ features shipped |
+| **[simeydotme/pokemon-cards-css](https://github.com/simeydotme/pokemon-cards-css)** | Fixed janky animations on mobile/touch devices | Performance improvements |
+| **[shevabam/breaking-bad-quotes](https://github.com/shevabam/breaking-bad-quotes)** | Added new character quotes | Content contribution |
 
-→ Also exploring issues in **Shadcn/ui**, **Radix UI**, and **Next.js ecosystem**
+#### Active Contributions
+
+- **[PokeAPI](https://github.com/PokeAPI/pokeapi)** — The Pokémon REST API (multiple submitted PRs)
+- **[tcgdex/cards-database](https://github.com/tcgdex/cards-database)** — Pokémon TCG database maintenance
+
+→ Also contributing to **Shadcn/ui**, **Radix UI**, and **Next.js ecosystem**
 
 ---
 
