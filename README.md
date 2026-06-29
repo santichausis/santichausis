@@ -7,6 +7,21 @@ Building micro-SaaS and contributing to open source.
 
 <!-- PRS:START -->
 
+### <img src="https://github.com/Tadreeb-LMS.png?size=40" width="20" align="top"/> [Tadreeb-LMS/tadreeblms](https://github.com/Tadreeb-LMS/tadreeblms) — Open source learning management system
+
+**29 merged PRs** across features, bug fixes and refactors. Highlights:
+
+| PR | What it does |
+|---|---|
+| [#794](https://github.com/Tadreeb-LMS/tadreeblms/pull/794) | Disable debugbar in production environment |
+| [#866](https://github.com/Tadreeb-LMS/tadreeblms/pull/866) | Add validation message for empty Users dropdown in Send Email |
+| [#865](https://github.com/Tadreeb-LMS/tadreeblms/pull/865) | Prevent button text overflow in Language Marketplace panel |
+| [#864](https://github.com/Tadreeb-LMS/tadreeblms/pull/864) | Correct import label on User Group page to 'Import User Groups' |
+| [#863](https://github.com/Tadreeb-LMS/tadreeblms/pull/863) | Show Trainer column for custom admin roles in Courses datatable |
+| [#862](https://github.com/Tadreeb-LMS/tadreeblms/pull/862) | Pagination not loading new page data in Courses datatable |
+
+→ [All my PRs in this repo](https://github.com/Tadreeb-LMS/tadreeblms/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
+
 ### <img src="https://github.com/pschlan.png?size=40" width="20" align="top"/> [pschlan/cron-job.org](https://github.com/pschlan/cron-job.org) — Open source cron job scheduling service
 
 | PR | What it does |
@@ -14,21 +29,6 @@ Building micro-SaaS and contributing to open source.
 | [#429](https://github.com/pschlan/cron-job.org/pull/429) | Explain job failure modes and HTTP error codes in history |
 | [#423](https://github.com/pschlan/cron-job.org/pull/423) | Auto-detect curl/wget commands pasted into the URL field |
 | [#421](https://github.com/pschlan/cron-job.org/pull/421) | Add "Import from cURL" to the job editor (frontend feature) |
-
-### <img src="https://github.com/Tadreeb-LMS.png?size=40" width="20" align="top"/> [Tadreeb-LMS/tadreeblms](https://github.com/Tadreeb-LMS/tadreeblms) — Open source learning management system
-
-**21 merged PRs** across features, bug fixes and refactors. Highlights:
-
-| PR | What it does |
-|---|---|
-| [#820](https://github.com/Tadreeb-LMS/tadreeblms/pull/820) | Use SubscribeCourse model in subscription restore and delete methods |
-| [#818](https://github.com/Tadreeb-LMS/tadreeblms/pull/818) | Use favicon.ico as primary favicon for browser tab icon |
-| [#798](https://github.com/Tadreeb-LMS/tadreeblms/pull/798) | Remove 'Preferred Language' field from registration form |
-| [#801](https://github.com/Tadreeb-LMS/tadreeblms/pull/801) | Ensure global browser tab branding configuration |
-| [#800](https://github.com/Tadreeb-LMS/tadreeblms/pull/800) | Move Categories into the Courses Management dropdown |
-| [#799](https://github.com/Tadreeb-LMS/tadreeblms/pull/799) | Add final feedback text field for course completion |
-
-→ [All my PRs in this repo](https://github.com/Tadreeb-LMS/tadreeblms/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
 
 ### <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) — The RESTful Pokémon API
 
