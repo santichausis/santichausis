@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 9 * * 1'   # lunes 09:00 UTC (~06:00 ART)
   workflow_dispatch:        # permite dispararlo a mano desde la pestaña Actions
+    inputs:
+      test_email:
+        description: 'Mandar un mail de prueba (sin tocar el README)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -35,6 +40,22 @@ jobs:
             echo "Sin cambios."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Test email
+        if: inputs.test_email && env.MAIL_PASSWORD != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: schausis@gmail.com
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "🧪 Test — notificación de perfil GitHub"
+          to: schausis@gmail.com
+          from: GitHub Actions
+          body: |
+            Mail de prueba: la notificación funciona.
+            A partir de ahora vas a recibir un mail cada vez que tu perfil se actualice con PRs nuevos.
 
       - name: Email on update
         if: steps.commit.outputs.changed == 'true' && env.MAIL_PASSWORD != ''
