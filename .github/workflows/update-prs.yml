@@ -20,6 +20,7 @@ jobs:
         run: python3 scripts/update_readme_prs.py
 
       - name: Commit if changed
+        id: commit
         run: |
           if [[ -n "$(git status --porcelain README.md)" ]]; then
             git config user.name "github-actions[bot]"
@@ -27,6 +28,26 @@ jobs:
             git add README.md
             git commit -m "chore: refresh merged PRs in README"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "Sin cambios."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Email on update
+        if: steps.commit.outputs.changed == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: schausis@gmail.com
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "✅ Tu perfil de GitHub se actualizó"
+          to: schausis@gmail.com
+          from: GitHub Actions
+          body: |
+            El README de tu perfil se actualizó con nuevos PRs merged.
+
+            Perfil: https://github.com/santichausis
+            Detalle del run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
