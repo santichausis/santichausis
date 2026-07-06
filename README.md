@@ -9,16 +9,16 @@ Building micro-SaaS and contributing to open source.
 
 ### <img src="https://github.com/Tadreeb-LMS.png?size=40" width="20" align="top"/> [Tadreeb-LMS/tadreeblms](https://github.com/Tadreeb-LMS/tadreeblms) — Open source learning management system
 
-**29 merged PRs** across features, bug fixes and refactors. Highlights:
+**32 merged PRs** across features, bug fixes and refactors. Highlights:
 
 | PR | What it does |
 |---|---|
+| [#881](https://github.com/Tadreeb-LMS/tadreeblms/pull/881) | Add deterministic pagination tiebreaker to all server-side datatables |
+| [#879](https://github.com/Tadreeb-LMS/tadreeblms/pull/879) | Non-deterministic pagination order in Courses datatable (#802 follow-up) |
+| [#878](https://github.com/Tadreeb-LMS/tadreeblms/pull/878) | Display all facilitator names in Trainer column (#830 follow-up) |
 | [#794](https://github.com/Tadreeb-LMS/tadreeblms/pull/794) | Disable debugbar in production environment |
 | [#866](https://github.com/Tadreeb-LMS/tadreeblms/pull/866) | Add validation message for empty Users dropdown in Send Email |
 | [#865](https://github.com/Tadreeb-LMS/tadreeblms/pull/865) | Prevent button text overflow in Language Marketplace panel |
-| [#864](https://github.com/Tadreeb-LMS/tadreeblms/pull/864) | Correct import label on User Group page to 'Import User Groups' |
-| [#863](https://github.com/Tadreeb-LMS/tadreeblms/pull/863) | Show Trainer column for custom admin roles in Courses datatable |
-| [#862](https://github.com/Tadreeb-LMS/tadreeblms/pull/862) | Pagination not loading new page data in Courses datatable |
 
 → [All my PRs in this repo](https://github.com/Tadreeb-LMS/tadreeblms/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
 
@@ -26,6 +26,7 @@ Building micro-SaaS and contributing to open source.
 
 | PR | What it does |
 |---|---|
+| [#441](https://github.com/pschlan/cron-job.org/pull/441) | Parse crontab lines to populate schedule and request fields |
 | [#429](https://github.com/pschlan/cron-job.org/pull/429) | Explain job failure modes and HTTP error codes in history |
 | [#423](https://github.com/pschlan/cron-job.org/pull/423) | Auto-detect curl/wget commands pasted into the URL field |
 | [#421](https://github.com/pschlan/cron-job.org/pull/421) | Add "Import from cURL" to the job editor (frontend feature) |
@@ -42,6 +43,7 @@ Building micro-SaaS and contributing to open source.
 
 | Repository | PR | What it does |
 |---|---|---|
+| <img src="https://github.com/strapi.png?size=40" width="16" align="top"/> [strapi/strapi](https://github.com/strapi/strapi) | [#26907](https://github.com/strapi/strapi/pull/26907) | Fix(utils): return 400 instead of 500 for invalid sort order/params |
 | <img src="https://github.com/freeCodeCamp.png?size=40" width="16" align="top"/> [freeCodeCamp/contribute](https://github.com/freeCodeCamp/contribute) | [#1283](https://github.com/freeCodeCamp/contribute/pull/1283) | Update Twitter icon to X logo in the navbar |
 | <img src="https://github.com/tcgdex.png?size=40" width="16" align="top"/> [tcgdex/cards-database](https://github.com/tcgdex/cards-database) | [#1371](https://github.com/tcgdex/cards-database/pull/1371) | Correct Drampa holo variants for McDonald's 2022/2024 promos |
 | <img src="https://github.com/shevabam.png?size=40" width="16" align="top"/> [shevabam/breaking-bad-quotes](https://github.com/shevabam/breaking-bad-quotes) | [#7](https://github.com/shevabam/breaking-bad-quotes/pull/7) | Add Gus Fring and Saul Goodman quotes |
