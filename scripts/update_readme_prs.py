@@ -26,8 +26,8 @@ END = "<!-- PRS:END -->"
 
 # Un repo necesita al menos esta cantidad de PRs merged para tener sección propia.
 FEATURED_THRESHOLD = 3
-# Máximo de filas por tabla; si hay más, se muestra un "N merged PRs" + link.
-MAX_ROWS = 6
+# Máximo de PRs mostrados por repo; si hay más, se muestra un "N merged PRs" + link.
+MAX_ROWS = 3
 
 # Descripciones curadas a mano por PR ("owner/repo#num"). Lo que no esté acá
 # usa el título crudo del PR. Agregá entradas para pulir PRs nuevos.
@@ -140,18 +140,24 @@ def build_section(prs):
     for repo_prs in by_repo.values():
         repo_prs.sort(key=lambda p: p["merged_at"], reverse=True)
 
-    # Orden de repos por actividad más reciente.
-    repos = sorted(by_repo.keys(), key=lambda r: by_repo[r][0]["merged_at"], reverse=True)
+    # Metadata de cada repo (descripción, estrellas, forks) para ordenar y describir.
+    meta = {}
+    for r in by_repo:
+        try:
+            data = api(f"/repos/{r}")
+            meta[r] = {
+                "desc": data.get("description") or "",
+                "stars": data.get("stargazers_count") or 0,
+                "forks": data.get("forks_count") or 0,
+            }
+        except urllib.error.HTTPError:
+            meta[r] = {"desc": "", "stars": 0, "forks": 0}
+    repo_desc = {r: m["desc"] for r, m in meta.items()}
+
+    # Orden de repos por popularidad: estrellas y, a igualdad, forks (desc).
+    repos = sorted(by_repo.keys(), key=lambda r: (meta[r]["stars"], meta[r]["forks"]), reverse=True)
     featured = [r for r in repos if len(by_repo[r]) >= FEATURED_THRESHOLD]
     others = [r for r in repos if len(by_repo[r]) < FEATURED_THRESHOLD]
-
-    # Cache de descripciones de repo.
-    repo_desc = {}
-    for r in repos:
-        try:
-            repo_desc[r] = api(f"/repos/{r}").get("description", "")
-        except urllib.error.HTTPError:
-            repo_desc[r] = ""
 
     out = []
     for full in featured:
