@@ -1,13 +1,13 @@
-# Santi 👋
+## Santi 👋
 
 **Product builder** · 🇦🇷
 Building micro-SaaS and contributing to open source.
 
-## 🔓 Open Source — Merged PRs
+### 🤖 Open Source — Merged PRs
 
 <!-- PRS:START -->
 
-### <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) [![Stars](https://img.shields.io/badge/⭐-5.3k-blue)](https://github.com/PokeAPI/pokeapi/stargazers) — The RESTful Pokémon API
+#### <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) [![Stars](https://img.shields.io/badge/⭐-5.3k-blue)](https://github.com/PokeAPI/pokeapi/stargazers) — The RESTful Pokémon API
 
 **5 merged PRs** across features, bug fixes and refactors. Highlights:
 
