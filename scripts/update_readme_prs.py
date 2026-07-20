@@ -180,9 +180,10 @@ def build_section(prs):
         rprs = by_repo[full]
         tag = tagline_for(full, repo_desc.get(full))
         badge = stars_badge(full, meta[full]["stars"])
-        title = f"### {logo(owner)} [{full}](https://github.com/{full}) {badge}"
+        title = f"#### {logo(owner)} [{full}](https://github.com/{full})"
         if tag:
             title += f" — {tag}"
+        title += f" {badge}"
         out.append(title)
         out.append("")
         if len(rprs) > MAX_ROWS:
@@ -199,7 +200,7 @@ def build_section(prs):
         out.append("")
 
     if others:
-        out.append("### Other merged contributions")
+        out.append("#### Other merged contributions")
         out.append("")
         out.append("| Repository | PR | What it does | Stars |")
         out.append("|---|---|---|---|")

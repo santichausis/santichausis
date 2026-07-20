@@ -7,7 +7,7 @@ Building micro-SaaS and contributing to open source.
 
 <!-- PRS:START -->
 
-#### <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) [![Stars](https://img.shields.io/badge/⭐-5.3k-blue)](https://github.com/PokeAPI/pokeapi/stargazers) — The RESTful Pokémon API
+#### <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) — The RESTful Pokémon API [![Stars](https://img.shields.io/badge/⭐-5.3k-blue)](https://github.com/PokeAPI/pokeapi/stargazers)
 
 **5 merged PRs** across features, bug fixes and refactors. Highlights:
 
@@ -19,7 +19,7 @@ Building micro-SaaS and contributing to open source.
 
 → [All my PRs in this repo](https://github.com/PokeAPI/pokeapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
 
-### <img src="https://github.com/pschlan.png?size=40" width="20" align="top"/> [pschlan/cron-job.org](https://github.com/pschlan/cron-job.org) [![Stars](https://img.shields.io/badge/⭐-2k-blue)](https://github.com/pschlan/cron-job.org/stargazers) — Open source cron job scheduling service
+#### <img src="https://github.com/pschlan.png?size=40" width="20" align="top"/> [pschlan/cron-job.org](https://github.com/pschlan/cron-job.org) — Open source cron job scheduling service [![Stars](https://img.shields.io/badge/⭐-2k-blue)](https://github.com/pschlan/cron-job.org/stargazers)
 
 **6 merged PRs** across features, bug fixes and refactors. Highlights:
 
@@ -31,7 +31,7 @@ Building micro-SaaS and contributing to open source.
 
 → [All my PRs in this repo](https://github.com/pschlan/cron-job.org/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
 
-### <img src="https://github.com/Tadreeb-LMS.png?size=40" width="20" align="top"/> [Tadreeb-LMS/tadreeblms](https://github.com/Tadreeb-LMS/tadreeblms) [![Stars](https://img.shields.io/badge/⭐-33-blue)](https://github.com/Tadreeb-LMS/tadreeblms/stargazers) — Open source learning management system
+#### <img src="https://github.com/Tadreeb-LMS.png?size=40" width="20" align="top"/> [Tadreeb-LMS/tadreeblms](https://github.com/Tadreeb-LMS/tadreeblms) — Open source learning management system [![Stars](https://img.shields.io/badge/⭐-33-blue)](https://github.com/Tadreeb-LMS/tadreeblms/stargazers)
 
 **32 merged PRs** across features, bug fixes and refactors. Highlights:
 
@@ -43,7 +43,7 @@ Building micro-SaaS and contributing to open source.
 
 → [All my PRs in this repo](https://github.com/Tadreeb-LMS/tadreeblms/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
 
-### Other merged contributions
+#### Other merged contributions
 
 | Repository | PR | What it does | Stars |
 |---|---|---|---|
