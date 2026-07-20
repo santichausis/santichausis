@@ -133,6 +133,21 @@ def logo(owner, width=20):
     return f'<img src="https://github.com/{owner}.png?size=40" width="{width}" align="top"/>'
 
 
+def format_stars(n):
+    if n < 1000:
+        return str(n)
+    val = n / 1000
+    s = f"{val:.1f}"
+    if s.endswith(".0"):
+        s = s[:-2]
+    return f"{s}k"
+
+
+def stars_badge(full, stars):
+    label = format_stars(stars)
+    return f'[![Stars](https://img.shields.io/badge/⭐-{label}-blue)](https://github.com/{full}/stargazers)'
+
+
 def build_section(prs):
     by_repo = defaultdict(list)
     for p in prs:
@@ -172,10 +187,11 @@ def build_section(prs):
         if len(rprs) > MAX_ROWS:
             out.append(f"**{len(rprs)} merged PRs** across features, bug fixes and refactors. Highlights:")
             out.append("")
-        out.append("| PR | What it does |")
-        out.append("|---|---|")
+        badge = stars_badge(full, meta[full]["stars"])
+        out.append("| PR | What it does | Stars |")
+        out.append("|---|---|---|")
         for p in rprs[:MAX_ROWS]:
-            out.append(f'| [#{p["num"]}]({p["url"]}) | {desc_for(p)} |')
+            out.append(f'| [#{p["num"]}]({p["url"]}) | {desc_for(p)} | {badge} |')
         if len(rprs) > MAX_ROWS:
             q = f"https://github.com/{full}/pulls?q=is%3Apr+author%3A{USERNAME}+is%3Amerged"
             out.append("")
@@ -185,14 +201,15 @@ def build_section(prs):
     if others:
         out.append("### Other merged contributions")
         out.append("")
-        out.append("| Repository | PR | What it does |")
-        out.append("|---|---|---|")
+        out.append("| Repository | PR | What it does | Stars |")
+        out.append("|---|---|---|---|")
         for full in others:
             owner = full.split("/")[0]
             p = by_repo[full][0]
+            badge = stars_badge(full, meta[full]["stars"])
             out.append(
                 f'| {logo(owner, 16)} [{full}](https://github.com/{full}) '
-                f'| [#{p["num"]}]({p["url"]}) | {desc_for(p)} |'
+                f'| [#{p["num"]}]({p["url"]}) | {desc_for(p)} | {badge} |'
             )
         out.append("")
 
