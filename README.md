@@ -9,25 +9,25 @@ Building micro-SaaS and contributing to open source.
 
 ### <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) — The RESTful Pokémon API
 
-**4 merged PRs** across features, bug fixes and refactors. Highlights:
+**5 merged PRs** across features, bug fixes and refactors. Highlights:
 
 | PR | What it does |
 |---|---|
+| [#1608](https://github.com/PokeAPI/pokeapi/pull/1608) | Fix location area encounters lookup assuming contiguous ids |
 | [#1603](https://github.com/PokeAPI/pokeapi/pull/1603) | Fix pokemon moves lookup assuming contiguous ids |
 | [#1486](https://github.com/PokeAPI/pokeapi/pull/1486) | Mark `Region.main_generation` as nullable in the OpenAPI spec |
-| [#1487](https://github.com/PokeAPI/pokeapi/pull/1487) | Rename `region_id` and `base_form_id` to `region` / `base_form` in evolution data |
 
 → [All my PRs in this repo](https://github.com/PokeAPI/pokeapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
 
 ### <img src="https://github.com/pschlan.png?size=40" width="20" align="top"/> [pschlan/cron-job.org](https://github.com/pschlan/cron-job.org) — Open source cron job scheduling service
 
-**5 merged PRs** across features, bug fixes and refactors. Highlights:
+**6 merged PRs** across features, bug fixes and refactors. Highlights:
 
 | PR | What it does |
 |---|---|
+| [#451](https://github.com/pschlan/cron-job.org/pull/451) | Api: Log when rate limiting is skipped due to Redis being unavailable |
 | [#448](https://github.com/pschlan/cron-job.org/pull/448) | Update footer branding from Twitter to X |
 | [#441](https://github.com/pschlan/cron-job.org/pull/441) | Parse crontab lines to populate schedule and request fields |
-| [#429](https://github.com/pschlan/cron-job.org/pull/429) | Explain job failure modes and HTTP error codes in history |
 
 → [All my PRs in this repo](https://github.com/pschlan/cron-job.org/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
 
