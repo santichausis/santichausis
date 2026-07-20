@@ -179,7 +179,8 @@ def build_section(prs):
         owner = full.split("/")[0]
         rprs = by_repo[full]
         tag = tagline_for(full, repo_desc.get(full))
-        title = f"### {logo(owner)} [{full}](https://github.com/{full})"
+        badge = stars_badge(full, meta[full]["stars"])
+        title = f"### {logo(owner)} [{full}](https://github.com/{full}) {badge}"
         if tag:
             title += f" — {tag}"
         out.append(title)
@@ -187,11 +188,10 @@ def build_section(prs):
         if len(rprs) > MAX_ROWS:
             out.append(f"**{len(rprs)} merged PRs** across features, bug fixes and refactors. Highlights:")
             out.append("")
-        badge = stars_badge(full, meta[full]["stars"])
-        out.append("| PR | What it does | Stars |")
-        out.append("|---|---|---|")
+        out.append("| PR | What it does |")
+        out.append("|---|---|")
         for p in rprs[:MAX_ROWS]:
-            out.append(f'| [#{p["num"]}]({p["url"]}) | {desc_for(p)} | {badge} |')
+            out.append(f'| [#{p["num"]}]({p["url"]}) | {desc_for(p)} |')
         if len(rprs) > MAX_ROWS:
             q = f"https://github.com/{full}/pulls?q=is%3Apr+author%3A{USERNAME}+is%3Amerged"
             out.append("")
