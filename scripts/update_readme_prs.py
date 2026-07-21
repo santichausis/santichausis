@@ -159,7 +159,7 @@ def build_section(prs):
         owner = full.split("/")[0]
         rprs = by_repo[full]
         repo_cell = f"{logo(owner)} [{full}](https://github.com/{full})"
-        stars_cell = f"⭐ {format_stars(meta[full]['stars'])}"
+        stars_cell = f"⭐ {format_stars(meta[full]['stars'])}"  # NBSP: evita que el navegador parta "⭐ 72.7k" en dos renglones
         q = f"https://github.com/{full}/pulls?q=is%3Apr+author%3A{USERNAME}+is%3Amerged"
         count_cell = f"[{len(rprs)}]({q})"
         latest = rprs[0]
