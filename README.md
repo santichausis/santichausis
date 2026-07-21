@@ -9,7 +9,7 @@
 **53 PRs merged · 9 repos** · auto-updated every Monday
 
 | Repo | Stars | Merged PRs | Latest merge |
-|---|---|---|---|
+|---|---|:---:|---|
 | <img src="https://github.com/strapi.png?size=40" width="20" align="top"/> [strapi/strapi](https://github.com/strapi/strapi) | ⭐ 72.7k | [2](https://github.com/strapi/strapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#27008](https://github.com/strapi/strapi/pull/27008) Fix(content-manager): validate items passed to plugin action APIs |
 | <img src="https://github.com/prisma.png?size=40" width="20" align="top"/> [prisma/prisma](https://github.com/prisma/prisma) | ⭐ 47.4k | [2](https://github.com/prisma/prisma/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#29730](https://github.com/prisma/prisma/pull/29730) Fix(fetch-engine): prefer APPDATA over cwd-relative cache dir on Windows |
 | <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) | ⭐ 5.3k | [5](https://github.com/PokeAPI/pokeapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1608](https://github.com/PokeAPI/pokeapi/pull/1608) Fix location area encounters lookup assuming contiguous ids |

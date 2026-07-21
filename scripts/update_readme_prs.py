@@ -153,7 +153,7 @@ def build_section(prs):
         f"**{len(prs)} PRs merged · {len(repos)} repos** · auto-updated every Monday",
         "",
         "| Repo | Stars | Merged PRs | Latest merge |",
-        "|---|---|---|---|",
+        "|---|---|:---:|---|",
     ]
     for full in repos:
         owner = full.split("/")[0]
