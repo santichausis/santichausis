@@ -3,8 +3,7 @@
 
 - Solo incluye PRs MERGED (nunca abiertos/pendientes).
 - Excluye repos propios (owner == USERNAME): cuentan solo contribuciones a otros.
-- Mantiene descripciones curadas (PR_OVERRIDES / REPO_TAGLINES); para lo nuevo
-  usa el título del PR / la descripción del repo en GitHub.
+- Mantiene descripciones curadas (PR_OVERRIDES); para lo nuevo usa el título del PR.
 - Reemplaza solo lo que está entre los marcadores PRS:START / PRS:END.
 
 Uso local:  GITHUB_TOKEN=$(gh auth token) python3 scripts/update_readme_prs.py
@@ -40,13 +39,6 @@ PR_OVERRIDES = {
     "tcgdex/cards-database#1371": "Correct Drampa holo variants for McDonald's 2022/2024 promos",
     "freeCodeCamp/contribute#1283": "Update Twitter icon to X logo in the navbar",
     "shevabam/breaking-bad-quotes#7": "Add Gus Fring and Saul Goodman quotes",
-}
-
-# Tagline corta por repo (al lado del título). Si no está, usa la descripción de GitHub.
-REPO_TAGLINES = {
-    "PokeAPI/pokeapi": "The RESTful Pokémon API",
-    "pschlan/cron-job.org": "Open source cron job scheduling service",
-    "Tadreeb-LMS/tadreeblms": "Open source learning management system",
 }
 
 
@@ -116,16 +108,6 @@ def desc_for(pr):
     return PR_OVERRIDES.get(f'{pr["full"]}#{pr["num"]}', pr["title"])
 
 
-def tagline_for(full, repo_desc):
-    if full in REPO_TAGLINES:
-        return REPO_TAGLINES[full]
-    d = (repo_desc or "").strip()
-    d = d.split(". ")[0].split(". ")[0]  # primera oración
-    if len(d) > 80:
-        d = d[:80].rsplit(" ", 1)[0]  # cortar en el último espacio, no a mitad de palabra
-    return d.rstrip(" .")
-
-
 def md_table_cell(s):
     # Escapa el pipe: dentro de una tabla markdown "|" sin escapar corta la celda.
     return s.replace("|", "\\|")
@@ -152,25 +134,23 @@ def build_section(prs):
     for repo_prs in by_repo.values():
         repo_prs.sort(key=lambda p: p["merged_at"], reverse=True)
 
-    # Metadata de cada repo (descripción, estrellas, forks) para ordenar y describir.
+    # Metadata de cada repo (estrellas, forks) para ordenar.
     meta = {}
     for r in by_repo:
         try:
             data = api(f"/repos/{r}")
             meta[r] = {
-                "desc": data.get("description") or "",
                 "stars": data.get("stargazers_count") or 0,
                 "forks": data.get("forks_count") or 0,
             }
         except urllib.error.HTTPError:
-            meta[r] = {"desc": "", "stars": 0, "forks": 0}
-    repo_desc = {r: m["desc"] for r, m in meta.items()}
+            meta[r] = {"stars": 0, "forks": 0}
 
     # Orden de repos por popularidad: estrellas y, a igualdad, forks (desc).
     repos = sorted(by_repo.keys(), key=lambda r: (meta[r]["stars"], meta[r]["forks"]), reverse=True)
 
     out = [
-        f"**{len(prs)} PRs merged · {len(repos)} repos** · actualizado automáticamente cada lunes",
+        f"**{len(prs)} PRs merged · {len(repos)} repos** · auto-updated every Monday",
         "",
         "| Repo | Stars | Merged PRs | Latest merge |",
         "|---|---|---|---|",
@@ -178,10 +158,7 @@ def build_section(prs):
     for full in repos:
         owner = full.split("/")[0]
         rprs = by_repo[full]
-        tag = tagline_for(full, repo_desc.get(full))
         repo_cell = f"{logo(owner)} [{full}](https://github.com/{full})"
-        if tag:
-            repo_cell += f" — {md_table_cell(tag)}"
         stars_cell = f"⭐ {format_stars(meta[full]['stars'])}"
         q = f"https://github.com/{full}/pulls?q=is%3Apr+author%3A{USERNAME}+is%3Amerged"
         count_cell = f"[{len(rprs)}]({q})"
