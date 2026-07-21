@@ -180,7 +180,7 @@ def build_section(prs):
         rprs = by_repo[full]
         tag = tagline_for(full, repo_desc.get(full))
         badge = stars_badge(full, meta[full]["stars"])
-        title = f"#### {logo(owner)} [{full}](https://github.com/{full})"
+        title = f"### {logo(owner)} [{full}](https://github.com/{full})"
         if tag:
             title += f" — {tag}"
         title += f" {badge}"
@@ -200,7 +200,7 @@ def build_section(prs):
         out.append("")
 
     if others:
-        out.append("#### Other merged contributions")
+        out.append("### Other merged contributions")
         out.append("")
         out.append("| Repository | PR | What it does | Stars |")
         out.append("|---|---|---|---|")
