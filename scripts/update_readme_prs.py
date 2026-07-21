@@ -24,11 +24,6 @@ README = os.path.join(os.path.dirname(__file__), "..", "README.md")
 START = "<!-- PRS:START -->"
 END = "<!-- PRS:END -->"
 
-# Un repo necesita al menos esta cantidad de PRs merged para tener sección propia.
-FEATURED_THRESHOLD = 3
-# Máximo de PRs mostrados por repo; si hay más, se muestra un "N merged PRs" + link.
-MAX_ROWS = 3
-
 # Descripciones curadas a mano por PR ("owner/repo#num"). Lo que no esté acá
 # usa el título crudo del PR. Agregá entradas para pulir PRs nuevos.
 PR_OVERRIDES = {
@@ -126,7 +121,14 @@ def tagline_for(full, repo_desc):
         return REPO_TAGLINES[full]
     d = (repo_desc or "").strip()
     d = d.split(". ")[0].split(". ")[0]  # primera oración
-    return d[:80].rstrip(" .") if d else ""
+    if len(d) > 80:
+        d = d[:80].rsplit(" ", 1)[0]  # cortar en el último espacio, no a mitad de palabra
+    return d.rstrip(" .")
+
+
+def md_table_cell(s):
+    # Escapa el pipe: dentro de una tabla markdown "|" sin escapar corta la celda.
+    return s.replace("|", "\\|")
 
 
 def logo(owner, width=20):
@@ -141,11 +143,6 @@ def format_stars(n):
     if s.endswith(".0"):
         s = s[:-2]
     return f"{s}k"
-
-
-def stars_badge(full, stars):
-    label = format_stars(stars)
-    return f'[![Stars](https://img.shields.io/badge/⭐-{label}-blue)](https://github.com/{full}/stargazers)'
 
 
 def build_section(prs):
@@ -171,48 +168,27 @@ def build_section(prs):
 
     # Orden de repos por popularidad: estrellas y, a igualdad, forks (desc).
     repos = sorted(by_repo.keys(), key=lambda r: (meta[r]["stars"], meta[r]["forks"]), reverse=True)
-    featured = [r for r in repos if len(by_repo[r]) >= FEATURED_THRESHOLD]
-    others = [r for r in repos if len(by_repo[r]) < FEATURED_THRESHOLD]
 
-    out = []
-    for full in featured:
+    out = [
+        f"**{len(prs)} PRs merged · {len(repos)} repos** · actualizado automáticamente cada lunes",
+        "",
+        "| Repo | Stars | Merged PRs | Latest merge |",
+        "|---|---|---|---|",
+    ]
+    for full in repos:
         owner = full.split("/")[0]
         rprs = by_repo[full]
         tag = tagline_for(full, repo_desc.get(full))
-        badge = stars_badge(full, meta[full]["stars"])
-        title = f"### {logo(owner)} [{full}](https://github.com/{full})"
+        repo_cell = f"{logo(owner)} [{full}](https://github.com/{full})"
         if tag:
-            title += f" — {tag}"
-        title += f" {badge}"
-        out.append(title)
-        out.append("")
-        if len(rprs) > MAX_ROWS:
-            out.append(f"**{len(rprs)} merged PRs** across features, bug fixes and refactors. Highlights:")
-            out.append("")
-        out.append("| PR | What it does |")
-        out.append("|---|---|")
-        for p in rprs[:MAX_ROWS]:
-            out.append(f'| [#{p["num"]}]({p["url"]}) | {desc_for(p)} |')
-        if len(rprs) > MAX_ROWS:
-            q = f"https://github.com/{full}/pulls?q=is%3Apr+author%3A{USERNAME}+is%3Amerged"
-            out.append("")
-            out.append(f"→ [All my PRs in this repo]({q})")
-        out.append("")
-
-    if others:
-        out.append("### Other merged contributions")
-        out.append("")
-        out.append("| Repository | PR | What it does | Stars |")
-        out.append("|---|---|---|---|")
-        for full in others:
-            owner = full.split("/")[0]
-            p = by_repo[full][0]
-            badge = stars_badge(full, meta[full]["stars"])
-            out.append(
-                f'| {logo(owner, 16)} [{full}](https://github.com/{full}) '
-                f'| [#{p["num"]}]({p["url"]}) | {desc_for(p)} | {badge} |'
-            )
-        out.append("")
+            repo_cell += f" — {md_table_cell(tag)}"
+        stars_cell = f"⭐ {format_stars(meta[full]['stars'])}"
+        q = f"https://github.com/{full}/pulls?q=is%3Apr+author%3A{USERNAME}+is%3Amerged"
+        count_cell = f"[{len(rprs)}]({q})"
+        latest = rprs[0]
+        latest_cell = f'[#{latest["num"]}]({latest["url"]}) {md_table_cell(desc_for(latest))}'
+        out.append(f"| {repo_cell} | {stars_cell} | {count_cell} | {latest_cell} |")
+    out.append("")
 
     return "\n".join(out).rstrip() + "\n"
 

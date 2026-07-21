@@ -6,52 +6,19 @@
 
 <!-- PRS:START -->
 
-### <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) — The RESTful Pokémon API [![Stars](https://img.shields.io/badge/⭐-5.3k-blue)](https://github.com/PokeAPI/pokeapi/stargazers)
+**53 PRs merged · 9 repos** · actualizado automáticamente cada lunes
 
-**5 merged PRs** across features, bug fixes and refactors. Highlights:
-
-| PR | What it does |
-|---|---|
-| [#1608](https://github.com/PokeAPI/pokeapi/pull/1608) | Fix location area encounters lookup assuming contiguous ids |
-| [#1603](https://github.com/PokeAPI/pokeapi/pull/1603) | Fix pokemon moves lookup assuming contiguous ids |
-| [#1486](https://github.com/PokeAPI/pokeapi/pull/1486) | Mark `Region.main_generation` as nullable in the OpenAPI spec |
-
-→ [All my PRs in this repo](https://github.com/PokeAPI/pokeapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
-
-### <img src="https://github.com/pschlan.png?size=40" width="20" align="top"/> [pschlan/cron-job.org](https://github.com/pschlan/cron-job.org) — Open source cron job scheduling service [![Stars](https://img.shields.io/badge/⭐-2k-blue)](https://github.com/pschlan/cron-job.org/stargazers)
-
-**6 merged PRs** across features, bug fixes and refactors. Highlights:
-
-| PR | What it does |
-|---|---|
-| [#451](https://github.com/pschlan/cron-job.org/pull/451) | Api: Log when rate limiting is skipped due to Redis being unavailable |
-| [#448](https://github.com/pschlan/cron-job.org/pull/448) | Update footer branding from Twitter to X |
-| [#441](https://github.com/pschlan/cron-job.org/pull/441) | Parse crontab lines to populate schedule and request fields |
-
-→ [All my PRs in this repo](https://github.com/pschlan/cron-job.org/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
-
-### <img src="https://github.com/Tadreeb-LMS.png?size=40" width="20" align="top"/> [Tadreeb-LMS/tadreeblms](https://github.com/Tadreeb-LMS/tadreeblms) — Open source learning management system [![Stars](https://img.shields.io/badge/⭐-33-blue)](https://github.com/Tadreeb-LMS/tadreeblms/stargazers)
-
-**34 merged PRs** across features, bug fixes and refactors. Highlights:
-
-| PR | What it does |
-|---|---|
-| [#915](https://github.com/Tadreeb-LMS/tadreeblms/pull/915) | Don't force-redirect to Feedback wizard step from standalone question creation |
-| [#909](https://github.com/Tadreeb-LMS/tadreeblms/pull/909) | Internal Trainee Report datatable — respect course_id, filter internal, order deterministically |
-| [#881](https://github.com/Tadreeb-LMS/tadreeblms/pull/881) | Add deterministic pagination tiebreaker to all server-side datatables |
-
-→ [All my PRs in this repo](https://github.com/Tadreeb-LMS/tadreeblms/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged)
-
-### Other merged contributions
-
-| Repository | PR | What it does | Stars |
+| Repo | Stars | Merged PRs | Latest merge |
 |---|---|---|---|
-| <img src="https://github.com/strapi.png?size=40" width="16" align="top"/> [strapi/strapi](https://github.com/strapi/strapi) | [#27008](https://github.com/strapi/strapi/pull/27008) | Fix(content-manager): validate items passed to plugin action APIs | [![Stars](https://img.shields.io/badge/⭐-72.7k-blue)](https://github.com/strapi/strapi/stargazers) |
-| <img src="https://github.com/prisma.png?size=40" width="16" align="top"/> [prisma/prisma](https://github.com/prisma/prisma) | [#29730](https://github.com/prisma/prisma/pull/29730) | Fix(fetch-engine): prefer APPDATA over cwd-relative cache dir on Windows | [![Stars](https://img.shields.io/badge/⭐-47.4k-blue)](https://github.com/prisma/prisma/stargazers) |
-| <img src="https://github.com/tcgdex.png?size=40" width="16" align="top"/> [tcgdex/cards-database](https://github.com/tcgdex/cards-database) | [#1371](https://github.com/tcgdex/cards-database/pull/1371) | Correct Drampa holo variants for McDonald's 2022/2024 promos | [![Stars](https://img.shields.io/badge/⭐-927-blue)](https://github.com/tcgdex/cards-database/stargazers) |
-| <img src="https://github.com/shevabam.png?size=40" width="16" align="top"/> [shevabam/breaking-bad-quotes](https://github.com/shevabam/breaking-bad-quotes) | [#7](https://github.com/shevabam/breaking-bad-quotes/pull/7) | Add Gus Fring and Saul Goodman quotes | [![Stars](https://img.shields.io/badge/⭐-455-blue)](https://github.com/shevabam/breaking-bad-quotes/stargazers) |
-| <img src="https://github.com/freeCodeCamp.png?size=40" width="16" align="top"/> [freeCodeCamp/contribute](https://github.com/freeCodeCamp/contribute) | [#1283](https://github.com/freeCodeCamp/contribute/pull/1283) | Update Twitter icon to X logo in the navbar | [![Stars](https://img.shields.io/badge/⭐-150-blue)](https://github.com/freeCodeCamp/contribute/stargazers) |
-| <img src="https://github.com/singh-odyssey.png?size=40" width="16" align="top"/> [singh-odyssey/travellers](https://github.com/singh-odyssey/travellers) | [#236](https://github.com/singh-odyssey/travellers/pull/236) | Reduce false positives in duplicate-issue detection | [![Stars](https://img.shields.io/badge/⭐-11-blue)](https://github.com/singh-odyssey/travellers/stargazers) |
+| <img src="https://github.com/strapi.png?size=40" width="20" align="top"/> [strapi/strapi](https://github.com/strapi/strapi) — 🚀 Strapi is the leading open-source headless CMS | ⭐ 72.7k | [2](https://github.com/strapi/strapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#27008](https://github.com/strapi/strapi/pull/27008) Fix(content-manager): validate items passed to plugin action APIs |
+| <img src="https://github.com/prisma.png?size=40" width="20" align="top"/> [prisma/prisma](https://github.com/prisma/prisma) — Next-generation ORM for Node.js & TypeScript \| PostgreSQL, MySQL, MariaDB, SQL | ⭐ 47.4k | [2](https://github.com/prisma/prisma/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#29730](https://github.com/prisma/prisma/pull/29730) Fix(fetch-engine): prefer APPDATA over cwd-relative cache dir on Windows |
+| <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) — The RESTful Pokémon API | ⭐ 5.3k | [5](https://github.com/PokeAPI/pokeapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1608](https://github.com/PokeAPI/pokeapi/pull/1608) Fix location area encounters lookup assuming contiguous ids |
+| <img src="https://github.com/pschlan.png?size=40" width="20" align="top"/> [pschlan/cron-job.org](https://github.com/pschlan/cron-job.org) — Open source cron job scheduling service | ⭐ 2k | [6](https://github.com/pschlan/cron-job.org/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#451](https://github.com/pschlan/cron-job.org/pull/451) Api: Log when rate limiting is skipped due to Redis being unavailable |
+| <img src="https://github.com/tcgdex.png?size=40" width="20" align="top"/> [tcgdex/cards-database](https://github.com/tcgdex/cards-database) — Pokémon Trading Card Game Card (TCG) Database for the TCGdex API | ⭐ 927 | [1](https://github.com/tcgdex/cards-database/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1371](https://github.com/tcgdex/cards-database/pull/1371) Correct Drampa holo variants for McDonald's 2022/2024 promos |
+| <img src="https://github.com/shevabam.png?size=40" width="20" align="top"/> [shevabam/breaking-bad-quotes](https://github.com/shevabam/breaking-bad-quotes) — A simple API to retrieve some quotes of Breaking Bad, bitch! | ⭐ 455 | [1](https://github.com/shevabam/breaking-bad-quotes/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#7](https://github.com/shevabam/breaking-bad-quotes/pull/7) Add Gus Fring and Saul Goodman quotes |
+| <img src="https://github.com/freeCodeCamp.png?size=40" width="20" align="top"/> [freeCodeCamp/contribute](https://github.com/freeCodeCamp/contribute) — Begin your contribution journey here | ⭐ 150 | [1](https://github.com/freeCodeCamp/contribute/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1283](https://github.com/freeCodeCamp/contribute/pull/1283) Update Twitter icon to X logo in the navbar |
+| <img src="https://github.com/Tadreeb-LMS.png?size=40" width="20" align="top"/> [Tadreeb-LMS/tadreeblms](https://github.com/Tadreeb-LMS/tadreeblms) — Open source learning management system | ⭐ 33 | [34](https://github.com/Tadreeb-LMS/tadreeblms/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#915](https://github.com/Tadreeb-LMS/tadreeblms/pull/915) Don't force-redirect to Feedback wizard step from standalone question creation |
+| <img src="https://github.com/singh-odyssey.png?size=40" width="20" align="top"/> [singh-odyssey/travellers](https://github.com/singh-odyssey/travellers) — A website where solo-travellers can meet other travellers , travelling to same | ⭐ 11 | [1](https://github.com/singh-odyssey/travellers/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#236](https://github.com/singh-odyssey/travellers/pull/236) Reduce false positives in duplicate-issue detection |
 
 <!-- PRS:END -->
 
