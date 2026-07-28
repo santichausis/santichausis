@@ -12,6 +12,7 @@ En CI:      el workflow exporta GITHUB_TOKEN automáticamente.
 
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -170,6 +171,21 @@ def build_section(prs):
     return "\n".join(out).rstrip() + "\n"
 
 
+def parse_summary(text):
+    """Extrae (N PRs, M repos) de la línea '**N PRs merged · M repos** · ...'."""
+    m = re.search(r"\*\*(\d+) PRs merged · (\d+) repos\*\*", text)
+    return (int(m.group(1)), int(m.group(2))) if m else (None, None)
+
+
+def write_github_output(values):
+    path = os.environ.get("GITHUB_OUTPUT")
+    if not path:
+        return
+    with open(path, "a", encoding="utf-8") as f:
+        for key, value in values.items():
+            f.write(f"{key}={value}\n")
+
+
 def main():
     prs = fetch_merged_prs()
     if not prs:
@@ -183,16 +199,30 @@ def main():
         print(f"Faltan los marcadores {START} / {END} en el README.", file=sys.stderr)
         sys.exit(1)
 
+    old_prs, old_repos = parse_summary(content)
+    new_prs, new_repos = parse_summary(section)
+
     pre = content.split(START)[0]
     post = content.split(END)[1]
     new = f"{pre}{START}\n\n{section}\n{END}{post}"
 
     if new == content:
         print("Sin cambios.")
+        write_github_output({"new_prs": 0, "new_repos": 0, "total_prs": new_prs, "total_repos": new_repos})
         return
+
     with open(README, "w", encoding="utf-8") as f:
         f.write(new)
-    print(f"README actualizado: {len(prs)} merged PRs en {len(set(p['full'] for p in prs))} repos.")
+
+    delta_prs = new_prs - old_prs if old_prs is not None else new_prs
+    delta_repos = new_repos - old_repos if old_repos is not None else new_repos
+    print(f"README actualizado: {new_prs} merged PRs en {new_repos} repos. (+{delta_prs} PRs, +{delta_repos} repos)")
+    write_github_output({
+        "new_prs": delta_prs,
+        "new_repos": delta_repos,
+        "total_prs": new_prs,
+        "total_repos": new_repos,
+    })
 
 
 if __name__ == "__main__":

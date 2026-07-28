@@ -22,6 +22,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Regenerate PR section
+        id: regen
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/update_readme_prs.py
@@ -66,11 +67,15 @@ jobs:
           secure: true
           username: schausis@gmail.com
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "✅ Tu perfil de GitHub se actualizó"
+          subject: "✅ Tu perfil de GitHub se actualizó (+${{ steps.regen.outputs.new_prs }} PRs)"
           to: schausis@gmail.com
           from: GitHub Actions
           body: |
-            El README de tu perfil se actualizó con nuevos PRs merged.
+            El README de tu perfil se actualizó:
+
+            + ${{ steps.regen.outputs.new_prs }} PRs merged nuevos
+            + ${{ steps.regen.outputs.new_repos }} repos nuevos
+            Total: ${{ steps.regen.outputs.total_prs }} PRs merged en ${{ steps.regen.outputs.total_repos }} repos
 
             Perfil: https://github.com/santichausis
             Detalle del run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
