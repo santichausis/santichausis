@@ -33,7 +33,7 @@ jobs:
           if [[ -n "$(git status --porcelain README.md)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md
+            git add README.md scripts/stars_state.json
             git commit -m "chore: refresh merged PRs in README"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -76,6 +76,9 @@ jobs:
             + ${{ steps.regen.outputs.new_prs }} PRs merged nuevos
             + ${{ steps.regen.outputs.new_repos }} repos nuevos
             Total: ${{ steps.regen.outputs.total_prs }} PRs merged en ${{ steps.regen.outputs.total_repos }} repos
+
+            ⭐ Star changes since last update:
+            ${{ steps.regen.outputs.stars_summary }}
 
             Perfil: https://github.com/santichausis
             Detalle del run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

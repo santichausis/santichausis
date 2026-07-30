@@ -21,6 +21,7 @@ from collections import defaultdict
 
 USERNAME = "santichausis"
 README = os.path.join(os.path.dirname(__file__), "..", "README.md")
+STARS_STATE = os.path.join(os.path.dirname(__file__), "stars_state.json")
 START = "<!-- PRS:START -->"
 END = "<!-- PRS:END -->"
 
@@ -168,7 +169,7 @@ def build_section(prs):
         out.append(f"| {repo_cell} | {stars_cell} | {count_cell} | {latest_cell} |")
     out.append("")
 
-    return "\n".join(out).rstrip() + "\n"
+    return "\n".join(out).rstrip() + "\n", meta
 
 
 def parse_summary(text):
@@ -183,7 +184,41 @@ def write_github_output(values):
         return
     with open(path, "a", encoding="utf-8") as f:
         for key, value in values.items():
-            f.write(f"{key}={value}\n")
+            if "\n" in str(value):
+                # Salida multilínea: sintaxis heredoc de GitHub Actions.
+                f.write(f"{key}<<GHA_EOF\n{value}\nGHA_EOF\n")
+            else:
+                f.write(f"{key}={value}\n")
+
+
+def load_stars_state():
+    try:
+        with open(STARS_STATE, encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def save_stars_state(meta):
+    state = {full: m["stars"] for full, m in meta.items()}
+    with open(STARS_STATE, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2, sort_keys=True)
+        f.write("\n")
+
+
+def stars_diff_summary(old_state, meta):
+    """Línea por repo con el cambio de estrellas desde el último mail (solo si hay dato previo y cambió)."""
+    lines = []
+    for full in sorted(meta, key=lambda r: meta[r]["stars"], reverse=True):
+        old = old_state.get(full)
+        if old is None:
+            continue  # repo nuevo, sin base para comparar todavía
+        delta = meta[full]["stars"] - old
+        if delta == 0:
+            continue
+        sign = "+" if delta > 0 else ""
+        lines.append(f"{full}: {sign}{delta} ⭐")
+    return "\n".join(lines) if lines else "(no star changes since last update)"
 
 
 def main():
@@ -191,7 +226,7 @@ def main():
     if not prs:
         print("No merged PRs found — abort para no vaciar el README.", file=sys.stderr)
         sys.exit(1)
-    section = build_section(prs)
+    section, meta = build_section(prs)
 
     with open(README, encoding="utf-8") as f:
         content = f.read()
@@ -214,14 +249,22 @@ def main():
     with open(README, "w", encoding="utf-8") as f:
         f.write(new)
 
+    # El estado de estrellas solo se guarda (y commitea) cuando también hay novedades de
+    # PRs — así el delta que se manda por mail siempre es "desde el último mail real".
+    old_stars = load_stars_state()
+    stars_summary = stars_diff_summary(old_stars, meta)
+    save_stars_state(meta)
+
     delta_prs = new_prs - old_prs if old_prs is not None else new_prs
     delta_repos = new_repos - old_repos if old_repos is not None else new_repos
     print(f"README actualizado: {new_prs} merged PRs en {new_repos} repos. (+{delta_prs} PRs, +{delta_repos} repos)")
+    print(f"Star changes:\n{stars_summary}")
     write_github_output({
         "new_prs": delta_prs,
         "new_repos": delta_repos,
         "total_prs": new_prs,
         "total_repos": new_repos,
+        "stars_summary": stars_summary,
     })
 
 
