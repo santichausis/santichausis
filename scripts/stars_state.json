@@ -1,12 +1,13 @@
 {
-  "PokeAPI/pokeapi": 5297,
+  "PokeAPI/pokeapi": 5306,
   "Tadreeb-LMS/tadreeblms": 34,
   "TravellersMeet/travellers": 12,
-  "electron/electron": 122238,
+  "electron/electron": 122299,
   "freeCodeCamp/contribute": 154,
-  "prisma/prisma": 47418,
-  "pschlan/cron-job.org": 2014,
+  "ghostfolio/ghostfolio": 9061,
+  "prisma/prisma": 47519,
+  "pschlan/cron-job.org": 2017,
   "shevabam/breaking-bad-quotes": 454,
-  "strapi/strapi": 72741,
-  "tcgdex/cards-database": 944
+  "strapi/strapi": 72781,
+  "tcgdex/cards-database": 958
 }
