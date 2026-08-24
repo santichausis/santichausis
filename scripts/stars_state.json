@@ -1,15 +1,15 @@
 {
-  "PokeAPI/pokeapi": 5329,
+  "PokeAPI/pokeapi": 5343,
   "Tadreeb-LMS/tadreeblms": 34,
   "TravellersMeet/travellers": 12,
-  "biomejs/biome": 25588,
-  "electron/electron": 122481,
+  "biomejs/biome": 25632,
+  "electron/electron": 122677,
   "freeCodeCamp/contribute": 155,
-  "ghostfolio/ghostfolio": 9143,
-  "pixijs/pixijs": 48018,
-  "prisma/prisma": 47576,
-  "pschlan/cron-job.org": 2035,
-  "shevabam/breaking-bad-quotes": 456,
-  "strapi/strapi": 72946,
-  "tcgdex/cards-database": 1008
+  "ghostfolio/ghostfolio": 9174,
+  "pixijs/pixijs": 48062,
+  "prisma/prisma": 47562,
+  "pschlan/cron-job.org": 2040,
+  "shevabam/breaking-bad-quotes": 457,
+  "strapi/strapi": 73010,
+  "tcgdex/cards-database": 1022
 }
