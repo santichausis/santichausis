@@ -2,7 +2,7 @@ name: Update merged PRs
 
 on:
   schedule:
-    - cron: '0 9 * * 1'   # lunes 09:00 UTC (~06:00 ART)
+    - cron: '13 9 * * 1'  # lunes 09:13 UTC (~06:13 ART) — evitar el punto de hora, más congestionado en Actions
   workflow_dispatch:        # permite dispararlo a mano desde la pestaña Actions
     inputs:
       test_email:
