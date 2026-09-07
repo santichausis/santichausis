@@ -2,7 +2,13 @@ name: Update merged PRs
 
 on:
   schedule:
-    - cron: '13 9 * * 1'  # lunes 09:13 UTC (~06:13 ART) — evitar el punto de hora, más congestionado en Actions
+    # GitHub a veces directamente no dispara un schedule (pasó 2 lunes seguidos, sin error
+    # ni registro del run). El script es idempotente — si ya está todo al día no commitea
+    # ni manda mail — así que varios intentos por semana son un backup gratis, no un riesgo
+    # de spam: el primero que efectivamente corre hace el trabajo, el resto no hace nada.
+    - cron: '13 9 * * 1'    # lunes 09:13 UTC (~06:13 ART) — intento principal
+    - cron: '13 15 * * 1'   # lunes 15:13 UTC (~12:13 ART) — backup mismo día
+    - cron: '13 9 * * 2'    # martes 09:13 UTC — backup final
   workflow_dispatch:        # permite dispararlo a mano desde la pestaña Actions
     inputs:
       test_email:
