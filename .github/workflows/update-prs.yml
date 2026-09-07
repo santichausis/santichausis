@@ -36,16 +36,20 @@ jobs:
       - name: Commit if changed
         id: commit
         run: |
+          before_sha=$(git rev-parse HEAD)
           if [[ -n "$(git status --porcelain README.md)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md scripts/stars_state.json
+            git add README.md scripts/weekly_state.json
             git commit -m "chore: refresh merged PRs in README"
             git push
+            after_sha=$(git rev-parse HEAD)
             echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "diff_url=https://github.com/${{ github.repository }}/compare/${before_sha}...${after_sha}" >> "$GITHUB_OUTPUT"
           else
             echo "Sin cambios."
             echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "diff_url=" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Test email
@@ -64,8 +68,11 @@ jobs:
             Mail de prueba: la notificación funciona.
             A partir de ahora vas a recibir un mail cada vez que tu perfil se actualice con PRs nuevos.
 
-      - name: Email on update
-        if: steps.commit.outputs.changed == 'true' && env.MAIL_PASSWORD != ''
+      # Se manda si hubo novedades reales (cualquier trigger) O si es el intento de respaldo
+      # final del martes (aunque no haya nada nuevo) — así siempre hay al menos un pulso
+      # semanal, incluso las semanas sin PRs mergeados.
+      - name: Send weekly email
+        if: (steps.commit.outputs.changed == 'true' || github.event.schedule == '13 9 * * 2') && env.MAIL_PASSWORD != ''
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -73,18 +80,12 @@ jobs:
           secure: true
           username: schausis@gmail.com
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "✅ Tu perfil de GitHub se actualizó (+${{ steps.regen.outputs.new_prs }} PRs)"
+          subject: ${{ steps.regen.outputs.email_subject }}
           to: schausis@gmail.com
           from: GitHub Actions
-          body: |
-            El README de tu perfil se actualizó:
-
-            + ${{ steps.regen.outputs.new_prs }} PRs merged nuevos
-            + ${{ steps.regen.outputs.new_repos }} repos nuevos
-            Total: ${{ steps.regen.outputs.total_prs }} PRs merged en ${{ steps.regen.outputs.total_repos }} repos
-
-            ⭐ Star changes since last update:
-            ${{ steps.regen.outputs.stars_summary }}
-
-            Perfil: https://github.com/santichausis
-            Detalle del run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          html_body: |
+            ${{ steps.regen.outputs.email_html }}
+            <p style="font-size:12px;color:#888">
+              ${{ steps.commit.outputs.diff_url && format('<a href="{0}">See what changed</a> · ', steps.commit.outputs.diff_url) || '' }}
+              <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">Run log</a>
+            </p>
