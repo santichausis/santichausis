@@ -6,6 +6,7 @@
     "PokeAPI/pokeapi#1603",
     "PokeAPI/pokeapi#1608",
     "PokeAPI/pokeapi#1620",
+    "PokeAPI/pokeapi#1669",
     "Tadreeb-LMS/tadreeblms#373",
     "Tadreeb-LMS/tadreeblms#444",
     "Tadreeb-LMS/tadreeblms#445",
@@ -70,18 +71,18 @@
     "tcgdex/cards-database#1371"
   ],
   "stars": {
-    "PokeAPI/pokeapi": 5371,
+    "PokeAPI/pokeapi": 5372,
     "Tadreeb-LMS/tadreeblms": 34,
     "TravellersMeet/travellers": 12,
-    "biomejs/biome": 25730,
-    "electron/electron": 122927,
+    "biomejs/biome": 25742,
+    "electron/electron": 122938,
     "freeCodeCamp/contribute": 156,
-    "ghostfolio/ghostfolio": 9256,
-    "pixijs/pixijs": 48133,
-    "prisma/orm": 47611,
-    "pschlan/cron-job.org": 2059,
+    "ghostfolio/ghostfolio": 9262,
+    "pixijs/pixijs": 48137,
+    "prisma/orm": 47609,
+    "pschlan/cron-job.org": 2062,
     "shevabam/breaking-bad-quotes": 460,
-    "strapi/strapi": 73086,
-    "tcgdex/cards-database": 1052
+    "strapi/strapi": 73092,
+    "tcgdex/cards-database": 1054
   }
 }

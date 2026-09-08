@@ -6,7 +6,7 @@
 
 <!-- PRS:START -->
 
-**68 PRs merged · 13 repos** · auto-updated every Monday
+**69 PRs merged · 13 repos** · auto-updated every Monday
 
 | Repo | Stars | Merged PRs | Latest merge |
 |---|---|:---:|---|
@@ -16,7 +16,7 @@
 | <img src="https://github.com/prisma.png?size=40" width="20" align="top"/> [prisma/orm](https://github.com/prisma/orm) | ⭐ 47.6k | [4](https://github.com/prisma/orm/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#29836](https://github.com/prisma/orm/pull/29836) Fix(migrate,cli): import from @prisma/internals's public entry, not its src/ |
 | <img src="https://github.com/biomejs.png?size=40" width="20" align="top"/> [biomejs/biome](https://github.com/biomejs/biome) | ⭐ 25.7k | [2](https://github.com/biomejs/biome/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#11492](https://github.com/biomejs/biome/pull/11492) Fix(js_analyze): recognize fast-check's test.prop in noMisplacedAssertion |
 | <img src="https://github.com/ghostfolio.png?size=40" width="20" align="top"/> [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio) | ⭐ 9.3k | [1](https://github.com/ghostfolio/ghostfolio/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#7456](https://github.com/ghostfolio/ghostfolio/pull/7456) Task/improve language localization for ES (20260728) |
-| <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) | ⭐ 5.4k | [6](https://github.com/PokeAPI/pokeapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1620](https://github.com/PokeAPI/pokeapi/pull/1620) Add missing English effect_entries for as-one-glastrier and as-one-spectrier |
+| <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) | ⭐ 5.4k | [7](https://github.com/PokeAPI/pokeapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1669](https://github.com/PokeAPI/pokeapi/pull/1669) Fix column indices when building MoveChange from move_changelog.csv |
 | <img src="https://github.com/pschlan.png?size=40" width="20" align="top"/> [pschlan/cron-job.org](https://github.com/pschlan/cron-job.org) | ⭐ 2.1k | [6](https://github.com/pschlan/cron-job.org/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#451](https://github.com/pschlan/cron-job.org/pull/451) Api: Log when rate limiting is skipped due to Redis being unavailable |
 | <img src="https://github.com/tcgdex.png?size=40" width="20" align="top"/> [tcgdex/cards-database](https://github.com/tcgdex/cards-database) | ⭐ 1.1k | [1](https://github.com/tcgdex/cards-database/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1371](https://github.com/tcgdex/cards-database/pull/1371) Correct Drampa holo variants for McDonald's 2022/2024 promos |
 | <img src="https://github.com/shevabam.png?size=40" width="20" align="top"/> [shevabam/breaking-bad-quotes](https://github.com/shevabam/breaking-bad-quotes) | ⭐ 460 | [1](https://github.com/shevabam/breaking-bad-quotes/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#7](https://github.com/shevabam/breaking-bad-quotes/pull/7) Add Gus Fring and Saul Goodman quotes |
