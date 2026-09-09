@@ -1,12 +1,10 @@
-## Santi 👋
+## Santi 👋 🇦🇷
 
-**Product builder** · 🇦🇷 Building micro-SaaS and contributing to open source.
-
-### 🤖 Open Source — Merged PRs
+### 🪄 Open Source — Merged PRs
 
 <!-- PRS:START -->
 
-**69 PRs merged · 13 repos** · auto-updated every Monday
+**69 PRs merged · 13 repos** · auto-updated weekly
 
 | Repo | Stars | Merged PRs | Latest merge |
 |---|---|:---:|---|
@@ -39,12 +37,4 @@
 
 ---
 
-## 🛠️ Stack
-
-**Frontend:** Next.js · React · TypeScript · Tailwind CSS
-**Backend:** Node.js · Supabase · PostgreSQL
-**DevOps:** Vercel · Docker · GitHub Actions
-
----
-
-💼 Open to collaborations on SaaS and open source · **Buenos Aires** 🇦🇷
+💼 Open to collaborations on open source ·
