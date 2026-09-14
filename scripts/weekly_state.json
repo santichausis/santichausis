@@ -41,6 +41,7 @@
     "Tadreeb-LMS/tadreeblms#881",
     "Tadreeb-LMS/tadreeblms#909",
     "Tadreeb-LMS/tadreeblms#915",
+    "TheOdinProject/theodinproject#5434",
     "TravellersMeet/travellers#236",
     "TravellersMeet/travellers#270",
     "TravellersMeet/travellers#271",
@@ -49,6 +50,7 @@
     "TravellersMeet/travellers#280",
     "biomejs/biome#11220",
     "biomejs/biome#11492",
+    "biomejs/biome#11743",
     "electron/electron#52337",
     "electron/electron#53145",
     "freeCodeCamp/contribute#1283",
@@ -71,18 +73,19 @@
     "tcgdex/cards-database#1371"
   ],
   "stars": {
-    "PokeAPI/pokeapi": 5372,
+    "PokeAPI/pokeapi": 5376,
     "Tadreeb-LMS/tadreeblms": 34,
+    "TheOdinProject/theodinproject": 4619,
     "TravellersMeet/travellers": 12,
-    "biomejs/biome": 25742,
-    "electron/electron": 122938,
-    "freeCodeCamp/contribute": 156,
-    "ghostfolio/ghostfolio": 9262,
-    "pixijs/pixijs": 48137,
+    "biomejs/biome": 25779,
+    "electron/electron": 123047,
+    "freeCodeCamp/contribute": 157,
+    "ghostfolio/ghostfolio": 9295,
+    "pixijs/pixijs": 48156,
     "prisma/orm": 47609,
-    "pschlan/cron-job.org": 2062,
-    "shevabam/breaking-bad-quotes": 460,
-    "strapi/strapi": 73092,
-    "tcgdex/cards-database": 1054
+    "pschlan/cron-job.org": 2069,
+    "shevabam/breaking-bad-quotes": 461,
+    "strapi/strapi": 73152,
+    "tcgdex/cards-database": 1066
   }
 }
