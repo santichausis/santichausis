@@ -4,13 +4,13 @@
 
 <!-- PRS:START -->
 
-**71 PRs merged · 14 repos** · auto-updated every Monday
+**72 PRs merged · 14 repos** · auto-updated every Monday
 
 | Repo | Stars | Merged PRs | Latest merge |
 |---|---|:---:|---|
-| <img src="https://github.com/electron.png?size=40" width="20" align="top"/> [electron/electron](https://github.com/electron/electron) | ⭐ 123k | [2](https://github.com/electron/electron/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#53145](https://github.com/electron/electron/pull/53145) Explain process.defaultApp and open-url timing for deep links |
+| <img src="https://github.com/electron.png?size=40" width="20" align="top"/> [electron/electron](https://github.com/electron/electron) | ⭐ 123.1k | [2](https://github.com/electron/electron/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#53145](https://github.com/electron/electron/pull/53145) Explain process.defaultApp and open-url timing for deep links |
 | <img src="https://github.com/strapi.png?size=40" width="20" align="top"/> [strapi/strapi](https://github.com/strapi/strapi) | ⭐ 73.2k | [2](https://github.com/strapi/strapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#27008](https://github.com/strapi/strapi/pull/27008) Fix(content-manager): validate items passed to plugin action APIs |
-| <img src="https://github.com/pixijs.png?size=40" width="20" align="top"/> [pixijs/pixijs](https://github.com/pixijs/pixijs) | ⭐ 48.2k | [2](https://github.com/pixijs/pixijs/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#12138](https://github.com/pixijs/pixijs/pull/12138) Raise pixelMatch threshold for html-text-stroke-anchor-tagged visual test |
+| <img src="https://github.com/pixijs.png?size=40" width="20" align="top"/> [pixijs/pixijs](https://github.com/pixijs/pixijs) | ⭐ 48.2k | [3](https://github.com/pixijs/pixijs/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#12199](https://github.com/pixijs/pixijs/pull/12199) Remove write-only _touched field from BindResource and implementors |
 | <img src="https://github.com/prisma.png?size=40" width="20" align="top"/> [prisma/orm](https://github.com/prisma/orm) | ⭐ 47.6k | [4](https://github.com/prisma/orm/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#29836](https://github.com/prisma/orm/pull/29836) Fix(migrate,cli): import from @prisma/internals's public entry, not its src/ |
 | <img src="https://github.com/biomejs.png?size=40" width="20" align="top"/> [biomejs/biome](https://github.com/biomejs/biome) | ⭐ 25.8k | [3](https://github.com/biomejs/biome/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#11743](https://github.com/biomejs/biome/pull/11743) Fix(html): write fixes back to attribute-expression embeds |
 | <img src="https://github.com/ghostfolio.png?size=40" width="20" align="top"/> [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio) | ⭐ 9.3k | [1](https://github.com/ghostfolio/ghostfolio/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#7456](https://github.com/ghostfolio/ghostfolio/pull/7456) Task/improve language localization for ES (20260728) |
