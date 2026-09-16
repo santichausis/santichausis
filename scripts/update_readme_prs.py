@@ -257,6 +257,38 @@ def compute_streak(prs):
     return streak
 
 
+MIN_RETENTION_RATIO = 0.9  # si el fetch trae menos del 90% de los PRs/repos que ya conocíamos,
+# es casi seguro un resultado parcial de la Search API de GitHub (no es fuertemente consistente,
+# a veces devuelve un total_count parcial/desactualizado) y NO un caso real de "se desmergearon
+# PRs". Pasó de verdad el 2026-09-15: un run devolvió 39 PRs/3 repos habiendo 72/14 conocidos,
+# y el script sin este chequeo lo tomó como bueno y pisó el README. Mejor abortar (el run queda
+# en rojo, GitHub avisa por mail) que confirmar un dato que puede ser basura.
+
+
+def sanity_check_or_abort(prs, meta, state):
+    known_prs, known_repos = state["known_prs"], set(state["stars"])
+    if not known_prs:
+        return  # primera corrida, sin base para comparar
+    if len(prs) < len(known_prs) * MIN_RETENTION_RATIO:
+        print(
+            f"ABORT: el fetch trajo {len(prs)} PRs merged, pero ya conocíamos {len(known_prs)} "
+            f"(retención {len(prs) / len(known_prs):.0%}, mínimo {MIN_RETENTION_RATIO:.0%}). "
+            f"Huele a respuesta parcial de la Search API de GitHub, no a PRs perdidos de verdad. "
+            f"No se toca el README ni el estado — reintentar en la próxima corrida.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    if len(meta) < len(known_repos) * MIN_RETENTION_RATIO:
+        missing = sorted(known_repos - set(meta))
+        print(
+            f"ABORT: el fetch trajo {len(meta)} repos, pero ya conocíamos {len(known_repos)} "
+            f"(faltan: {', '.join(missing)}). Misma causa probable que el chequeo de PRs — "
+            f"no se toca el README ni el estado.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+
 def star_milestones(old_stars, meta):
     """Repos que cruzaron un umbral redondo de estrellas desde el último mail."""
     hits = []
@@ -382,6 +414,9 @@ def main():
         sys.exit(1)
     section, meta = build_section(prs)
 
+    state = load_state()
+    sanity_check_or_abort(prs, meta, state)  # antes de tocar el README o el estado guardado
+
     with open(README, encoding="utf-8") as f:
         content = f.read()
     if START not in content or END not in content:
@@ -397,7 +432,6 @@ def main():
         with open(README, "w", encoding="utf-8") as f:
             f.write(new)
 
-    state = load_state()
     all_pr_ids = {f'{p["full"]}#{p["num"]}' for p in prs}
     new_pr_ids = all_pr_ids - state["known_prs"] if state["known_prs"] else set()
     new_pr_list = sorted(
