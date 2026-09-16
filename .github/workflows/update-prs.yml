@@ -3,9 +3,9 @@ name: Update merged PRs
 on:
   schedule:
     # GitHub a veces directamente no dispara un schedule (pasó 2 lunes seguidos, sin error
-    # ni registro del run). El script es idempotente — si ya está todo al día no commitea
-    # ni manda mail — así que varios intentos por semana son un backup gratis, no un riesgo
-    # de spam: el primero que efectivamente corre hace el trabajo, el resto no hace nada.
+    # ni registro del run) — por eso hay 3 intentos por semana en vez de uno. El script
+    # decide por su cuenta cuándo commitear y cuándo mandar mail (máximo 1 mail/semana,
+    # ver update_readme_prs.py), así que los intentos de más son backup, no riesgo de spam.
     - cron: '13 9 * * 1'    # lunes 09:13 UTC (~06:13 ART) — intento principal
     - cron: '13 15 * * 1'   # lunes 15:13 UTC (~12:13 ART) — backup mismo día
     - cron: '13 9 * * 2'    # martes 09:13 UTC — backup final
@@ -37,18 +37,16 @@ jobs:
         id: commit
         run: |
           before_sha=$(git rev-parse HEAD)
-          if [[ -n "$(git status --porcelain README.md)" ]]; then
+          if [[ -n "$(git status --porcelain README.md scripts/weekly_state.json)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add README.md scripts/weekly_state.json
             git commit -m "chore: refresh merged PRs in README"
             git push
             after_sha=$(git rev-parse HEAD)
-            echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "diff_url=https://github.com/${{ github.repository }}/compare/${before_sha}...${after_sha}" >> "$GITHUB_OUTPUT"
           else
             echo "Sin cambios."
-            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "diff_url=" >> "$GITHUB_OUTPUT"
           fi
 
@@ -70,11 +68,12 @@ jobs:
             <p style="color:#c00;font-size:12px">⚠️ Test run — el README no se tocó.</p>
             ${{ steps.regen.outputs.email_html }}
 
-      # Se manda si hubo novedades reales (cualquier trigger) O si es el intento de respaldo
-      # final del martes (aunque no haya nada nuevo) — así siempre hay al menos un pulso
-      # semanal, incluso las semanas sin PRs mergeados.
+      # send_email lo decide Python: como mucho 1 mail por semana ISO (si el cron dispara
+      # varias veces con novedades, solo la primera manda; el resto se acumula para ese
+      # mismo mail o para el próximo). El pulso "sin novedades" solo sale si para el momento
+      # en que corre esto (martes en adelante) todavía no se mandó nada esa semana.
       - name: Send weekly email
-        if: (steps.commit.outputs.changed == 'true' || github.event.schedule == '13 9 * * 2') && env.MAIL_PASSWORD != ''
+        if: steps.regen.outputs.send_email == 'true' && env.MAIL_PASSWORD != ''
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com

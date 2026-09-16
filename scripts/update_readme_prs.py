@@ -224,17 +224,23 @@ def load_state():
             data = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         data = {}
-    return {"stars": data.get("stars", {}), "known_prs": set(data.get("known_prs", []))}
-
-
-def save_state(meta, all_pr_ids):
-    state = {
-        "stars": {full: m["stars"] for full, m in meta.items()},
-        "known_prs": sorted(all_pr_ids),
+    return {
+        "stars": data.get("stars", {}),
+        "known_prs": set(data.get("known_prs", [])),
+        "last_emailed_week": data.get("last_emailed_week", ""),
     }
+
+
+def save_state(stars, known_prs, last_emailed_week):
+    state = {"stars": stars, "known_prs": sorted(known_prs), "last_emailed_week": last_emailed_week}
     with open(STATE_PATH, "w", encoding="utf-8") as f:
         json.dump(state, f, indent=2, sort_keys=True)
         f.write("\n")
+
+
+def iso_week_label(d):
+    year, week, _ = d.isocalendar()
+    return f"{year}-W{week:02d}"
 
 
 def compute_streak(prs):
@@ -461,8 +467,30 @@ def main():
     needs_action = fetch_needs_action_prs()
     recently_closed = fetch_recently_closed_unmerged()
 
-    if content_changed:
-        save_state(meta, all_pr_ids)
+    # Máximo 1 mail por semana ISO, aunque el cron dispare 3 veces: si ya se mandó uno esta
+    # semana, una segunda novedad real se guarda en el README (siempre queda al día) pero NO
+    # genera un segundo mail — se acumula para el próximo. El "sin novedades" del fin de
+    # ventana (martes en adelante, no solo martes puntual, por si ese intento también se
+    # saltea) solo se manda si de verdad no se avisó nada esta semana todavía.
+    today = date.today()
+    current_week = iso_week_label(today)
+    already_emailed_this_week = state["last_emailed_week"] == current_week
+    is_week_closing = today.weekday() >= 1  # martes (1) en adelante, no solo el lunes
+
+    if content_changed and not already_emailed_this_week:
+        send_email = True
+    elif not content_changed and is_week_closing and not already_emailed_this_week:
+        send_email = True
+    else:
+        send_email = False
+
+    if send_email:
+        save_state({full: m["stars"] for full, m in meta.items()}, all_pr_ids, current_week)
+    else:
+        # Reescribe con los mismos valores (no cambia nada) para no perder el estado actual;
+        # si content_changed pero se suprime el mail, el próximo mail que sí salga va a
+        # comparar contra esta MISMA base vieja y mostrar el delta acumulado completo.
+        save_state(state["stars"], state["known_prs"], state["last_emailed_week"])
 
     total_prs, total_repos = len(prs), len(meta)
     subject, body_html = build_email(
@@ -485,10 +513,12 @@ def main():
     else:
         print("Sin cambios en el README.")
     print(f"Open PRs: {len(open_prs)} · Needs action: {len(needs_action)} · "
-          f"Closed unmerged (últimos {RECENT_CLOSED_DAYS}d): {len(recently_closed)} · Streak: {streak}")
+          f"Closed unmerged (últimos {RECENT_CLOSED_DAYS}d): {len(recently_closed)} · "
+          f"Streak: {streak} · Send email: {send_email} (ya mandado esta semana: {already_emailed_this_week})")
 
     write_github_output({
         "changed": "true" if content_changed else "false",
+        "send_email": "true" if send_email else "false",
         "email_subject": subject,
         "email_html": body_html,
     })
