@@ -73,21 +73,21 @@
     "strapi/strapi#27008",
     "tcgdex/cards-database#1371"
   ],
-  "last_emailed_week": "2026-W38",
+  "last_emailed_week": "2026-W39",
   "stars": {
-    "PokeAPI/pokeapi": 5377,
+    "PokeAPI/pokeapi": 5383,
     "Tadreeb-LMS/tadreeblms": 34,
-    "TheOdinProject/theodinproject": 4625,
+    "TheOdinProject/theodinproject": 4632,
     "TravellersMeet/travellers": 12,
-    "biomejs/biome": 25851,
-    "electron/electron": 123089,
+    "biomejs/biome": 25840,
+    "electron/electron": 123185,
     "freeCodeCamp/contribute": 157,
-    "ghostfolio/ghostfolio": 9301,
-    "pixijs/pixijs": 48168,
-    "prisma/orm": 47611,
-    "pschlan/cron-job.org": 2070,
-    "shevabam/breaking-bad-quotes": 462,
-    "strapi/strapi": 73178,
-    "tcgdex/cards-database": 1067
+    "ghostfolio/ghostfolio": 9327,
+    "pixijs/pixijs": 48198,
+    "prisma/orm": 47648,
+    "pschlan/cron-job.org": 2078,
+    "shevabam/breaking-bad-quotes": 464,
+    "strapi/strapi": 73208,
+    "tcgdex/cards-database": 1079
   }
 }
