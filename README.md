@@ -4,7 +4,7 @@
 
 <!-- PRS:START -->
 
-**72 PRs merged · 14 repos** · auto-updated every Monday
+**73 PRs merged · 14 repos** · auto-updated every Monday
 
 | Repo | Stars | Merged PRs | Latest merge |
 |---|---|:---:|---|
@@ -12,7 +12,7 @@
 | <img src="https://github.com/strapi.png?size=40" width="20" align="top"/> [strapi/strapi](https://github.com/strapi/strapi) | ⭐ 73.2k | [2](https://github.com/strapi/strapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#27008](https://github.com/strapi/strapi/pull/27008) Fix(content-manager): validate items passed to plugin action APIs |
 | <img src="https://github.com/pixijs.png?size=40" width="20" align="top"/> [pixijs/pixijs](https://github.com/pixijs/pixijs) | ⭐ 48.2k | [3](https://github.com/pixijs/pixijs/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#12199](https://github.com/pixijs/pixijs/pull/12199) Remove write-only _touched field from BindResource and implementors |
 | <img src="https://github.com/prisma.png?size=40" width="20" align="top"/> [prisma/orm](https://github.com/prisma/orm) | ⭐ 47.7k | [4](https://github.com/prisma/orm/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#29836](https://github.com/prisma/orm/pull/29836) Fix(migrate,cli): import from @prisma/internals's public entry, not its src/ |
-| <img src="https://github.com/biomejs.png?size=40" width="20" align="top"/> [biomejs/biome](https://github.com/biomejs/biome) | ⭐ 25.8k | [3](https://github.com/biomejs/biome/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#11743](https://github.com/biomejs/biome/pull/11743) Fix(html): write fixes back to attribute-expression embeds |
+| <img src="https://github.com/biomejs.png?size=40" width="20" align="top"/> [biomejs/biome](https://github.com/biomejs/biome) | ⭐ 25.9k | [3](https://github.com/biomejs/biome/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#11743](https://github.com/biomejs/biome/pull/11743) Fix(html): write fixes back to attribute-expression embeds |
 | <img src="https://github.com/ghostfolio.png?size=40" width="20" align="top"/> [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio) | ⭐ 9.3k | [1](https://github.com/ghostfolio/ghostfolio/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#7456](https://github.com/ghostfolio/ghostfolio/pull/7456) Task/improve language localization for ES (20260728) |
 | <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) | ⭐ 5.4k | [7](https://github.com/PokeAPI/pokeapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1669](https://github.com/PokeAPI/pokeapi/pull/1669) Fix column indices when building MoveChange from move_changelog.csv |
 | <img src="https://github.com/TheOdinProject.png?size=40" width="20" align="top"/> [TheOdinProject/theodinproject](https://github.com/TheOdinProject/theodinproject) | ⭐ 4.6k | [1](https://github.com/TheOdinProject/theodinproject/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#5434](https://github.com/TheOdinProject/theodinproject/pull/5434) Section not opening while sidebar is open |
@@ -21,7 +21,7 @@
 | <img src="https://github.com/shevabam.png?size=40" width="20" align="top"/> [shevabam/breaking-bad-quotes](https://github.com/shevabam/breaking-bad-quotes) | ⭐ 464 | [1](https://github.com/shevabam/breaking-bad-quotes/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#7](https://github.com/shevabam/breaking-bad-quotes/pull/7) Add Gus Fring and Saul Goodman quotes |
 | <img src="https://github.com/freeCodeCamp.png?size=40" width="20" align="top"/> [freeCodeCamp/contribute](https://github.com/freeCodeCamp/contribute) | ⭐ 157 | [1](https://github.com/freeCodeCamp/contribute/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1283](https://github.com/freeCodeCamp/contribute/pull/1283) Update Twitter icon to X logo in the navbar |
 | <img src="https://github.com/Tadreeb-LMS.png?size=40" width="20" align="top"/> [Tadreeb-LMS/tadreeblms](https://github.com/Tadreeb-LMS/tadreeblms) | ⭐ 34 | [34](https://github.com/Tadreeb-LMS/tadreeblms/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#915](https://github.com/Tadreeb-LMS/tadreeblms/pull/915) Don't force-redirect to Feedback wizard step from standalone question creation |
-| <img src="https://github.com/TravellersMeet.png?size=40" width="20" align="top"/> [TravellersMeet/travellers](https://github.com/TravellersMeet/travellers) | ⭐ 12 | [6](https://github.com/TravellersMeet/travellers/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#279](https://github.com/TravellersMeet/travellers/pull/279) Replace /routes/new test stub with an auth-gated coming-soon page |
+| <img src="https://github.com/TravellersMeet.png?size=40" width="20" align="top"/> [TravellersMeet/travellers](https://github.com/TravellersMeet/travellers) | ⭐ 12 | [7](https://github.com/TravellersMeet/travellers/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#444](https://github.com/TravellersMeet/travellers/pull/444) Test: fix two stale tests that turned main's CI red |
 
 <!-- PRS:END -->
 

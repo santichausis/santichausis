@@ -123,6 +123,10 @@ def fetch_recently_closed_unmerged(days=RECENT_CLOSED_DAYS):
     return fetch_prs(f"is:closed is:unmerged closed:>={since}")
 
 
+def fetch_follower_count():
+    return api(f"/users/{USERNAME}").get("followers") or 0
+
+
 def clean_title(t):
     # Saca prefijos tipo "Fix:", "feat:", "Refactor:" para que quede más limpio.
     for sep in (": ", "/ "):
@@ -228,11 +232,17 @@ def load_state():
         "stars": data.get("stars", {}),
         "known_prs": set(data.get("known_prs", [])),
         "last_emailed_week": data.get("last_emailed_week", ""),
+        "followers": data.get("followers"),  # None = todavía no hay base para comparar
     }
 
 
-def save_state(stars, known_prs, last_emailed_week):
-    state = {"stars": stars, "known_prs": sorted(known_prs), "last_emailed_week": last_emailed_week}
+def save_state(stars, known_prs, last_emailed_week, followers):
+    state = {
+        "stars": stars,
+        "known_prs": sorted(known_prs),
+        "last_emailed_week": last_emailed_week,
+        "followers": followers,
+    }
     with open(STATE_PATH, "w", encoding="utf-8") as f:
         json.dump(state, f, indent=2, sort_keys=True)
         f.write("\n")
@@ -325,7 +335,7 @@ def html_section(title, rows_html):
 
 def build_email(*, content_changed, new_pr_list, new_repo_list, stars_diff,
                  milestones, streak, needs_action, open_prs, recently_closed,
-                 total_prs, total_repos):
+                 total_prs, total_repos, followers, followers_delta):
     parts = []
 
     if new_pr_list:
@@ -340,6 +350,13 @@ def build_email(*, content_changed, new_pr_list, new_repo_list, stars_diff,
         f'<strong>{total_prs} PRs merged · {total_repos} repos</strong> total'
         f'</p>'
     )
+
+    followers_line = f"👥 <strong>{followers} followers</strong>"
+    if followers_delta:
+        color = "#1a7f37" if followers_delta > 0 else "#cf222e"
+        sign = "+" if followers_delta > 0 else ""
+        followers_line += f' · <span style="color:{color}">{sign}{followers_delta} since last update</span>'
+    parts.append(f'<p style="font-size:14px;color:#555;margin:0 0 16px">{followers_line}</p>')
 
     if new_pr_list:
         rows = [
@@ -466,6 +483,8 @@ def main():
     open_prs = fetch_open_prs()
     needs_action = fetch_needs_action_prs()
     recently_closed = fetch_recently_closed_unmerged()
+    followers = fetch_follower_count()
+    followers_delta = None if state["followers"] is None else followers - state["followers"]
 
     # Máximo 1 mail por semana ISO, aunque el cron dispare 3 veces: si ya se mandó uno esta
     # semana, una segunda novedad real se guarda en el README (siempre queda al día) pero NO
@@ -485,12 +504,12 @@ def main():
         send_email = False
 
     if send_email:
-        save_state({full: m["stars"] for full, m in meta.items()}, all_pr_ids, current_week)
+        save_state({full: m["stars"] for full, m in meta.items()}, all_pr_ids, current_week, followers)
     else:
         # Reescribe con los mismos valores (no cambia nada) para no perder el estado actual;
         # si content_changed pero se suprime el mail, el próximo mail que sí salga va a
         # comparar contra esta MISMA base vieja y mostrar el delta acumulado completo.
-        save_state(state["stars"], state["known_prs"], state["last_emailed_week"])
+        save_state(state["stars"], state["known_prs"], state["last_emailed_week"], state["followers"])
 
     total_prs, total_repos = len(prs), len(meta)
     subject, body_html = build_email(
@@ -500,6 +519,8 @@ def main():
         stars_diff=stars_diff,
         milestones=milestones,
         streak=streak,
+        followers=followers,
+        followers_delta=followers_delta,
         needs_action=needs_action,
         open_prs=open_prs,
         recently_closed=recently_closed,
@@ -512,9 +533,11 @@ def main():
               f"(+{len(new_pr_list)} PRs nuevos, +{len(new_repo_list)} repos nuevos)")
     else:
         print("Sin cambios en el README.")
+    followers_log = "sin base" if followers_delta is None else f"{followers_delta:+} desde el último mail"
     print(f"Open PRs: {len(open_prs)} · Needs action: {len(needs_action)} · "
           f"Closed unmerged (últimos {RECENT_CLOSED_DAYS}d): {len(recently_closed)} · "
-          f"Streak: {streak} · Send email: {send_email} (ya mandado esta semana: {already_emailed_this_week})")
+          f"Streak: {streak} · Followers: {followers} ({followers_log}) · "
+          f"Send email: {send_email} (ya mandado esta semana: {already_emailed_this_week})")
 
     write_github_output({
         "changed": "true" if content_changed else "false",
