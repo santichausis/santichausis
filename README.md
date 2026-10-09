@@ -39,4 +39,4 @@
 
 ---
 
-💼 Open to collaborations on open source ·
+💼 Open to collaborations on open source

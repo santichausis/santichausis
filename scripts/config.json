@@ -1,0 +1,26 @@
+{
+  "username": "santichausis",
+  "summary_suffix": "auto-updated weekly",
+  "recent_closed_days": 10,
+  "min_retention_ratio": 0.9,
+  "stale_days": 14,
+  "aged_days": 30,
+  "top_star_changes": 5,
+  "star_milestones": [100, 500, 1000, 2500, 5000, 10000, 25000, 50000, 75000,
+                      100000, 150000, 200000, 250000, 500000, 1000000],
+  "pr_overrides": {
+    "PokeAPI/pokeapi#1487": "Rename `region_id` and `base_form_id` to `region` / `base_form` in evolution data",
+    "PokeAPI/pokeapi#1486": "Mark `Region.main_generation` as nullable in the OpenAPI spec",
+    "PokeAPI/pokeapi#1482": "Fix `gender_rate` for DLC Pokémon (Dipplin, Loyal Three, Ogerpon, Terapagos)",
+    "pschlan/cron-job.org#421": "Add \"Import from cURL\" to the job editor (frontend feature)",
+    "Tadreeb-LMS/tadreeblms#799": "Add final feedback text field for course completion",
+    "Tadreeb-LMS/tadreeblms#800": "Move Categories into the Courses Management dropdown",
+    "Tadreeb-LMS/tadreeblms#456": "Add download button for the base English language file",
+    "Tadreeb-LMS/tadreeblms#445": "Regenerate session ID on login + enable `AuthenticateSession` middleware",
+    "Tadreeb-LMS/tadreeblms#795": "Resolve employee edit 404 by reordering routes",
+    "Tadreeb-LMS/tadreeblms#373": "Fix 500 error in the Send Email Notification module",
+    "tcgdex/cards-database#1371": "Correct Drampa holo variants for McDonald's 2022/2024 promos",
+    "freeCodeCamp/contribute#1283": "Update Twitter icon to X logo in the navbar",
+    "shevabam/breaking-bad-quotes#7": "Add Gus Fring and Saul Goodman quotes"
+  }
+}
