@@ -1,5 +1,5 @@
 {
-  "followers": 37,
+  "followers": 40,
   "known_prs": [
     "PokeAPI/pokeapi#1482",
     "PokeAPI/pokeapi#1486",
@@ -95,23 +95,23 @@
     "typesense/typesense-python#137",
     "typesense/typesense-python#138"
   ],
-  "last_emailed_week": "2026-W43",
+  "last_emailed_week": "2026-W44",
   "stars": {
-    "PokeAPI/pokeapi": 5413,
-    "Tadreeb-LMS/tadreeblms": 34,
-    "TheOdinProject/theodinproject": 4659,
+    "PokeAPI/pokeapi": 5429,
+    "Tadreeb-LMS/tadreeblms": 35,
+    "TheOdinProject/theodinproject": 4664,
     "TravellersMeet/travellers": 12,
-    "biomejs/biome": 25977,
-    "career-ops-hq/career-ops": 75615,
-    "electron/electron": 123410,
-    "freeCodeCamp/contribute": 159,
-    "ghostfolio/ghostfolio": 9525,
-    "pixijs/pixijs": 48422,
-    "prisma/orm": 47697,
-    "pschlan/cron-job.org": 2116,
-    "shevabam/breaking-bad-quotes": 465,
-    "strapi/strapi": 73343,
-    "tcgdex/cards-database": 1143,
+    "biomejs/biome": 26000,
+    "career-ops-hq/career-ops": 77510,
+    "electron/electron": 123559,
+    "freeCodeCamp/contribute": 160,
+    "ghostfolio/ghostfolio": 9582,
+    "pixijs/pixijs": 48501,
+    "prisma/orm": 47670,
+    "pschlan/cron-job.org": 2122,
+    "shevabam/breaking-bad-quotes": 467,
+    "strapi/strapi": 73385,
+    "tcgdex/cards-database": 1148,
     "typesense/typesense-python": 247
   }
 }
