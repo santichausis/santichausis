@@ -4,7 +4,7 @@
 
 <!-- PRS:START -->
 
-**94 PRs merged · 16 repos** · auto-updated weekly
+**95 PRs merged · 16 repos** · auto-updated weekly
 
 | Repo | Stars | Merged PRs | Latest merge |
 |---|---|:---:|---|
@@ -16,7 +16,7 @@
 | <img src="https://github.com/biomejs.png?size=40" width="20" align="top"/> [biomejs/biome](https://github.com/biomejs/biome) | ⭐ 26.1k | [4](https://github.com/biomejs/biome/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#11563](https://github.com/biomejs/biome/pull/11563) Fix(js_analyze): don't apply noAdjacentSpacesInRegex fix inside character classes |
 | <img src="https://github.com/ghostfolio.png?size=40" width="20" align="top"/> [ghostfolio/ghostfolio](https://github.com/ghostfolio/ghostfolio) | ⭐ 9.7k | [1](https://github.com/ghostfolio/ghostfolio/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#7456](https://github.com/ghostfolio/ghostfolio/pull/7456) Task/improve language localization for ES (20260728) |
 | <img src="https://github.com/PokeAPI.png?size=40" width="20" align="top"/> [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi) | ⭐ 5.5k | [10](https://github.com/PokeAPI/pokeapi/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1690](https://github.com/PokeAPI/pokeapi/pull/1690) Avoid per-row queries for evolution condition variables and natures |
-| <img src="https://github.com/TheOdinProject.png?size=40" width="20" align="top"/> [TheOdinProject/theodinproject](https://github.com/TheOdinProject/theodinproject) | ⭐ 4.7k | [1](https://github.com/TheOdinProject/theodinproject/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#5434](https://github.com/TheOdinProject/theodinproject/pull/5434) Section not opening while sidebar is open |
+| <img src="https://github.com/TheOdinProject.png?size=40" width="20" align="top"/> [TheOdinProject/theodinproject](https://github.com/TheOdinProject/theodinproject) | ⭐ 4.7k | [2](https://github.com/TheOdinProject/theodinproject/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#5506](https://github.com/TheOdinProject/theodinproject/pull/5506) Update to Node 24 |
 | <img src="https://github.com/pschlan.png?size=40" width="20" align="top"/> [pschlan/cron-job.org](https://github.com/pschlan/cron-job.org) | ⭐ 2.2k | [6](https://github.com/pschlan/cron-job.org/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#451](https://github.com/pschlan/cron-job.org/pull/451) Api: Log when rate limiting is skipped due to Redis being unavailable |
 | <img src="https://github.com/tcgdex.png?size=40" width="20" align="top"/> [tcgdex/cards-database](https://github.com/tcgdex/cards-database) | ⭐ 1.2k | [1](https://github.com/tcgdex/cards-database/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#1371](https://github.com/tcgdex/cards-database/pull/1371) Correct Drampa holo variants for McDonald's 2022/2024 promos |
 | <img src="https://github.com/shevabam.png?size=40" width="20" align="top"/> [shevabam/breaking-bad-quotes](https://github.com/shevabam/breaking-bad-quotes) | ⭐ 473 | [1](https://github.com/shevabam/breaking-bad-quotes/pulls?q=is%3Apr+author%3Asantichausis+is%3Amerged) | [#7](https://github.com/shevabam/breaking-bad-quotes/pull/7) Add Gus Fring and Saul Goodman quotes |
